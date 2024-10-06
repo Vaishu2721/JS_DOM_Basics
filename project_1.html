@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+    <style>
+        .container{
+            margin-left: 500px;
+            margin-top: 50px;
+        }
+        h2{
+            padding: 8px;
+            margin-left: 100px;
+        }
+
+        h3{
+            padding: 10px;
+            margin-left:70px;
+            width: 350px;
+            text-align: center;
+        }
+     
+        span{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        #red{
+            background-color: #c61b1b;
+        }
+        #yellow{
+            background-color: #d7da30;
+        }
+        #white{
+            background-color: #fff;
+        }
+        #blue{
+            background-color: #1b76c6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Color Scheme Switcher</h2>
+        <span class="button" id="red"></span>
+        <span class="button" id="yellow"></span>
+        <span class="button" id="white"></span>
+        <span class="button" id="blue"></span>
+        <h3>Try clicking on the color boxex to change the background color of the body</h3>
+    </div>
+    <script>
+         let body=document.querySelector('body')
+         let button=document.querySelectorAll('.button')
+
+         button.forEach((btn)=>{
+            btn.addEventListener("click",(e)=>{
+                   if(e.target.id=="red"){
+                    body.style.backgroundColor=e.target.id;
+                   }else if(e.target.id=="yellow"){
+                    body.style.backgroundColor=e.target.id;
+                   }else if(e.target.id=="white"){
+                    body.style.backgroundColor=e.target.id;
+                   }else if(e.target.id=="blue"){
+                    body.style.backgroundColor=e.target.id;
+                   }
+            })
+         })
+    </script>
+</body>
+</html>

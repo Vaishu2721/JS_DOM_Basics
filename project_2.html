@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BMI calculator</title>
+   <style>
+      h2 {
+         padding: 10px 7px;
+         margin-left: 10px;
+      }
+
+      #height,
+      #weight {
+         padding: 3px;
+         margin: 10px;
+         margin-left: 30px;
+         cursor: pointer;
+      }
+
+      label {
+         margin-left: 20px;
+      }
+
+      #button {
+         margin: 20px 150px;
+         padding: 10px 12px;
+         background-color: #03963e;
+         color: #fff;
+         border: none;
+         border-radius: 5px;
+         font-weight: bold;
+      }
+
+      .innerContainer {
+         margin-left: 120px;
+      }
+
+      .innerContainer h4 {
+         padding-left: 20px;
+      }
+
+      #result {
+         margin-left: 180px;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <h2>BMI Calculator</h2>
+      <form action="">
+         <label for="height">Height in cm: </label>
+         <input type="text" id="height"><br>
+         <label for="weight">Weight in kg: </label>
+         <input type="text" id="weight"><br>
+         <button type="submit" id="button"> Calculate</button>
+         <div id="result"></div>
+         <div class="innerContainer">
+            <h4>BMI Weight Guide:</h4>
+            <p>Under Weight = less than 18.6</p>
+            <p> Normal Range = 18.6 - 24.9</p>
+            <p> Overweight = Greater than 24.9</p>
+         </div>
+      </form>
+   </div>
+   <script>
+
+      let form = document.querySelector('form')
+      form.addEventListener('submit', function (e) {
+         e.preventDefault()
+         let height = parseInt(document.getElementById('height').value)
+         let weight = parseInt(document.getElementById('weight').value)
+         let result = document.querySelector('#result')
+         let res = 0
+
+         if (height == '' || height <= 0 || isNaN(height)) {
+            alert("Height must in a number greater than zero in centimeters")
+         }else if (weight == '' || weight <= 0 || isNaN(weight)) {
+            alert("Weight must in a number greater than zero in centimeters")
+         }else{
+            let h = height/100
+            res=(weight/(h*h)).toFixed(2)
+            result.innerHTML=res
+         }
+
+         if(res>0 && res<18.6){
+            alert("you are under weight")
+         }
+         else if(res>=18.6 && res<=24.9){
+            alert("you are under weight")
+         }
+         else{
+            alert("you are over weight")
+         }
+      })
+
+   </script>
+</body>
+
+</html>
