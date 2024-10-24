@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+        .center{
+            margin-top:5px;
+            padding: 10px;
+            margin-left: 400px;
+        }
+
+        .button{
+            margin-left: 220px;
+        }
+
+        button{
+            padding: 7px 10px;
+            border-radius: 5px;
+            margin: 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h2>Click on start and stop buttons to view the effect on background</h2>
+        <div class="button">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+        </div>
+    </div>
+
+    <script>
+        function backgroundColor(){
+            let hex = "0123456789ABCDEF"
+            let color = "#"
+            for(let i =0 ; i<6 ;i++){
+                color+=Math.floor(Math.random()*16)
+            }
+            return color
+        }
+       
+        let intervalId;
+        let changeBgColor= function (){
+            if(!intervalId){
+                intervalId= setInterval(bgColor,1000)
+            }
+            function bgColor(){
+                document.body.style.backgroundColor= backgroundColor()
+            }
+        }
+
+        let stopBgColor=  function (){
+            clearInterval(intervalId)
+            intervalId = null
+        }
+
+        let start = document.querySelector("#start")
+        start.addEventListener("click", changeBgColor)
+
+        let stop = document.querySelector("#stop") 
+        stop.addEventListener("click", stopBgColor)
+    </script>
+</body>
+</html>
